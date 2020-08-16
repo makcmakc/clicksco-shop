@@ -1,7 +1,7 @@
 <template>
   <div class="product-list">
     <Product
-      v-for="(product, index) in PRODUCTS"
+      v-for="(product, index) in SORTED_PRODUCTS"
       :key="index"
       v-bind:product="product"
     />
@@ -18,10 +18,10 @@ export default {
     Product
   },
   computed: {
-    ...mapGetters(['PRODUCTS'])
+    ...mapGetters(['PRODUCTS', 'SORTED_PRODUCTS'])
   },
   methods: {
-    ...mapActions(['GET_PRODUCTS'])       
+    ...mapActions(['GET_PRODUCTS'])
   },
   mounted() {
     this.GET_PRODUCTS()

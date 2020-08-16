@@ -8,6 +8,7 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     products: [],
+    sortedProducts: [],
     cart: [],
     isAdded: false
   },
@@ -18,12 +19,16 @@ export default new Vuex.Store({
       })
         .then(products => {
           commit('SET_PRODUCTS_TO_STATE', products.data)
+          commit('SET_SORTED_PRODUCTS_TO_STATE', products.data)
           return products
         })
         .catch(error => {
           console.log(error)
           return error
         })
+    },
+    SET_SORTED_PRODUCTS_TO_STATE({ commit }, sortedProducts) {
+      commit('SET_SORTED_PRODUCTS_TO_STATE', sortedProducts)
     },
     SET_PRODUCT_TO_CART({ commit }, product) {
       commit('SET_PRODUCT_TO_CART', product)
@@ -42,11 +47,13 @@ export default new Vuex.Store({
     SET_PRODUCTS_TO_STATE(state, products) {
       state.products = products
     },
+    SET_SORTED_PRODUCTS_TO_STATE(state, sortedProducts) {
+      state.sortedProducts = sortedProducts
+    },
     SET_PRODUCT_TO_CART(state, product) {
-      if (state.cart.length) {
+      if (state.cart.length > 1) {
         state.isAdded = false
         state.cart.map(item => {
-          console.log(item)
           if (item.id === product.id) {
             state.isAdded = true
             item.quantity++
@@ -73,6 +80,7 @@ export default new Vuex.Store({
   },
   getters: {
     PRODUCTS: state => state.products,
+    SORTED_PRODUCTS: state => state.sortedProducts,
     CART: state => state.cart,
     SUMMARY: state => {
       let summary = 0
@@ -80,6 +88,6 @@ export default new Vuex.Store({
         summary += item.price * item.quantity
       })
       return summary
-    }
+    },
   }
 })
