@@ -13,7 +13,7 @@
       <div class="nav-link__cart">
         <router-link to="/cart" exact>
         <div class="cart">
-          <div class="cart-link__count">8</div>
+          <div v-if="CART.length" class="cart-link__count">{{ CART.length }}</div>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" aria-labelledby="shopicon" role="presentation" width="30" height="30">
             <title id="cart">
               Shopping Cart
@@ -28,68 +28,16 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name:'TopNavigation',
   components: {
   },
   computed: {
+    ...mapGetters(['CART'])
   }
 }
 </script>
 
-<style lang="scss">
-.nav {
-  width: 100vw;
-  // box-shadow: 1px 0rem 14px 0px #eee;
-  background: #fff;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 30px;
-  &-wrapper {
-    width: 1100px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    // margin: auto;
-  }
-  &-link__home {
-    margin-left: 50px;
-    .logo {
-      display: flex;
-      span {
-        margin-left: 10px;
-        margin-top: 5px;
-        font-size: 22px;
-        color: #1f1f1f;
-        font-style: italic;
-      }
-    }
-  }
-  &-link__cart {
-    margin-right: 60px;
-  }
-  .cart {
-    &-link__count {
-      position: absolute;
-      padding: 2px 6px;
-      border-radius: 50%;
-      margin: 18px 25px;
-      background-color: #3498DB;
-      color: #f1f1f1;
-      font-size: 14px;
-      font-weight: bold;
-    }    
-  }
-}
-
-
-
-@media only screen and (max-width: 768px) { 
-  .nav {
-    width: 100%;
-  }
-}
-</style>
 

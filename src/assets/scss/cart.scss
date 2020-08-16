@@ -1,0 +1,179 @@
+@mixin transition($property: all, $duration: 0.45s, $ease: cubic-bezier(0.65,0,.076,1)) {
+  transition: $property $duration $ease;
+}
+
+.shopping-cart {
+  &__empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 100px;
+    font-family: 'Mukta', sans-serif;
+    font-style: italic;
+    p {
+      font-size: 20px;
+      font-weight: 100;
+      margin-bottom: 10px;
+    }
+  }
+  .button {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    vertical-align: middle;
+    text-decoration: none;
+    background: transparent;
+    padding: 0;
+    font-size: inherit;
+    font-family: inherit;
+    &.shop-now {
+      width: 12rem;
+      height: auto;
+      .circle {
+        @include transition(all, 0.35s, cubic-bezier(0.65 , 0, .076, 1));
+        position: relative;
+        display: block;
+        margin: 0;
+        width: 3rem;
+        height: 3rem;
+        background: #3498DB;
+        border-radius: 1.625rem;
+        .icon {
+          @include transition(all, 0.35s, cubic-bezier(0.65,0,.076,1));
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          margin: auto;
+          background: #fff;
+          &.arrow {
+            @include transition(all, 0.35s, cubic-bezier(0.65,0,.076,1));
+            left: 0.625rem;
+            width: 1.125rem;
+            height: 0.125rem;
+            background: none;
+            &::before {
+              position: absolute;
+              content: '';
+              top: -0.25rem;
+              right: 0.0625rem;
+              width: 0.625rem;
+              height: 0.625rem;
+              border-top: 0.125rem solid #fff;
+              border-right: 0.125rem solid #fff;
+              transform: rotate(45deg);
+            }
+          }
+        }
+      }
+      .button-text {
+        @include transition(all, 0.35s, cubic-bezier(0.65,0,.076,1));
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 0.75rem 0;
+        margin: 0 0 0 1.85rem;
+        color: #282936;
+        font-weight: 700;
+        line-height: 1.6;
+        text-align: center;
+        text-transform: uppercase;
+        transition: all .35s ease-in-out;
+      }
+    }
+    &:hover {
+      .circle {
+        width: 100%;
+        .icon {
+          &.arrow {
+          background: #fff;
+          transform: translate(1rem, 0);
+          }
+        }
+      }
+      .button-text {
+        font-style: italic;
+        transition: all .35s ease-in-out;
+        color: #fff;
+      }
+    }
+  }
+  &__products {
+    .cart-product {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+      background: #fff;
+      padding: 10px 25px;
+      max-height: 180px;
+      &__image {
+        width: 150px;
+        max-height: 150px;
+      }
+      &__brand {
+        font-size: 20px;
+      }
+      &__price {
+        font-size: 20px;
+      }
+      &__quantity {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+
+        .decrement, .increment {
+          width: 30px;
+          height: 30px;
+          background-color: #3498DB;
+          font-size: 26px;
+          font-weight: 900;
+          color: #f2f2f2;
+          margin: 10px;
+          cursor: pointer;
+          border-radius: 5px;
+          outline: none;
+        }
+        .quantity {
+          font-size: 20px;
+        }
+      }
+      &__delete {
+        background-color: #3498DB;
+        padding: 8px 30px;
+        border-radius: 5px;
+        border: none;
+        color: #f2f2f2;
+        font-size: 16px;
+        font-style: italic;
+        font-weight: 500;
+        cursor: pointer;
+        &:hover {
+          box-shadow: 0 0 0 3px lighten(#3498DB, 30%);
+          transition: .2s ease-in-out;
+        }
+      }
+    }
+  }
+  &__summary {
+    width: 100%;
+    padding: 20px 60px;
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 14px;
+    .summary-price {
+      font-size: 19px;
+      span {
+        font-weight: 700;
+        margin-left: 15px;
+      }
+    }
+  }
+}

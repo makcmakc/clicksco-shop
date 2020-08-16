@@ -1,4 +1,9 @@
-@import url('./main.scss');
 @import url('./scss/_vars.scss');
-
-@import url('https://fonts.googleapis.com/css?family=Mukta:700');
+@import url('./scss/_fonts.scss');
+@import url('./scss/_mixins.scss');
+@import url('./scss/main.scss');
+@import url('./scss/top_navigation.scss');
+@import url('./scss/cart.scss');
+@import url('./scss/filters.scss');
+@import url('./scss/product_list.scss');
+@import url('./scss/product.scss');

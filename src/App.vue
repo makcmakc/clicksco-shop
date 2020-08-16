@@ -9,13 +9,11 @@
 
 <script>
 import TopNavigation from '@/components/TopNavigation.vue'
+import './assets/index.scss'
+
 export default {
   components: {
     TopNavigation
   }
 }
 </script>
-
-<style lang="scss">
-@import url('./assets/index.scss');
-</style>

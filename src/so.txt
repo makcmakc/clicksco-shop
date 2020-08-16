@@ -1,0 +1,85 @@
+	'UPDATE_CART' (state, {item, quantity, isAdd}) {
+		const record = state.cartItemList.find(element => element.id == item.id);
+		if (record) {
+			if (isAdd) {
+				record.quantity += quantity;
+			} else {
+				record.quantity = quantity;
+			}
+		} else {
+			state.cartItemList.push({
+				...item,
+				quantity
+			});
+		}
+	},
+
+
+export const updateCart = ({ commit }, {item, quantity, isAdd}) => {
+  // TODO: Call service
+  commit('UPDATE_CART', {item, quantity, isAdd});
+  if (isAdd) {
+    let message_obj = {
+      message: `Add ${item.title} to cart successfully`,
+      messageClass: "success",
+      autoClose: true
+    }
+    commit('ADD_MESSAGE', message_obj);
+  }
+}
+
+
+
+    // Count cart summary in the cart component
+
+    // cartSummary() {
+    //   // let summary = []
+    //   // for (let item of this.CART) {
+    //   //  summary.push(item.price * item.quantity)
+    //   // }
+    //   // summary = summary.reduce((sum, el) => {
+    //   //   return sum + el
+    //   // })
+    //   // return summary
+    // }
+
+
+
+    getAllColors() {
+      this.PRODUCTS.forEach(product => {
+        product.color.map(e => {
+          return console.log('Ef', e)
+        })
+      })
+      let a = ["1", "1", "2", "3", "3", "1"];
+      let unique = a.filter((item, i, ar) => ar.indexOf(item) === i);
+      console.log(unique);
+    },
+    // removeTags : function (item) {
+    //   this.filtersAppied.pop(item)
+    // },
+
+    // setActive: function(element){
+    //   if(this.filtersAppied.indexOf(element) > -1){
+    //     this.filtersAppied.pop(element)
+    //   }else{
+    //     this.filtersAppied.push(element)
+    //   }
+    // },
+    // isActive: function (menuItem) {
+    //   return this.filtersAppied.indexOf(menuItem) > -1
+    // }
+
+
+        // filteredItems() {
+    //   return this.PRODUCTS.filter(product => {
+    //     return this.filtersAppied.map(filterAppied => {
+    //       if (product.color.includes(filterAppied)) {
+    //         return product.color.includes(filterAppied);
+    //       }
+    //       if (product.size.includes(filterAppied)) {
+    //         return product.size.includes(filterAppied);
+    //       }
+    //     })
+    //   })
+    // }

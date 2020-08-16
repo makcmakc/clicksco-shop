@@ -8,7 +8,7 @@
       "description": "Lorem ipsum dolor.",
       "image": "off-white.jpg",
       "sizes": ["XL", "L", "XS", "M"],
-      "colors": ["#0C0809", "#CDCDCF"]
+      "color": ["#0C0809", "#CDCDCF"]
     },
     {
       "id": 2,
@@ -18,7 +18,7 @@
       "description": "Lorem ipsum dolor.",
       "image": "asos.jpg",
       "sizes": ["XS", "S", "M", "L", "XL", "XXL"],
-      "colors": ["#D3C7B9"]
+      "color": ["#D3C7B9"]
     },
     {
       "id": 3,
@@ -28,7 +28,7 @@
       "description": "Lorem ipsum dolor.",
       "image": "ben-sherman.jpg",
       "sizes": ["L", "XL", "XXL"],
-      "colors": ["#D0D4D5", "#353742", "#CDCDCF", "#0C0809"]
+      "color": ["#D0D4D5", "#353742", "#CDCDCF", "#0C0809"]
     },
     {
       "id": 4,
@@ -38,7 +38,7 @@
       "description": "Lorem ipsum dolor.",
       "image": "h&m.jpeg",
       "sizes": ["XS", "S", "M", "L"],
-      "colors": ["#353742", "#CDCDCF", "#0C0809"]
+      "color": ["#353742", "#CDCDCF", "#0C0809"]
     },
     {
       "id": 5,
@@ -48,7 +48,7 @@
       "description": "Lorem ipsum dolor.",
       "image": "nike.jpg",
       "sizes": ["S", "M", "L", "XL"],
-      "colors": ["#D0D4D5", "#353742", "#CDCDCF"]
+      "color": ["#D0D4D5", "#353742", "#CDCDCF"]
     },
     {
       "id": 6,
@@ -58,7 +58,7 @@
       "description": "Lorem ipsum dolor.",
       "image": "polo.jpeg",
       "sizes": ["XS", "S", "XL", "XXL"],
-      "colors": ["#D0D4D5", "#353742", "#CDCDCF", "#0C0809"]
+      "color": ["#D0D4D5", "#353742", "#CDCDCF", "#0C0809"]
     },
     {
       "id": 7,
@@ -68,7 +68,7 @@
       "description": "Lorem ipsum dolor.",
       "image": "addidas.jpg",
       "sizes": ["XS", "S", "M", "L", "XL", "XXL"],
-      "colors": ["#D0D4D5", "#CDCDCF", "#0C0809"]
+      "color": ["#D0D4D5", "#CDCDCF", "#0C0809"]
     },
     {
       "id": 8,
@@ -78,7 +78,7 @@
       "description": "Lorem ipsum dolor.",
       "image": "prada.jpg",
       "sizes": ["XS", "S"],
-      "colors": ["#D0D4D5", "#353742", "#0C0809"]
+      "color": ["#D0D4D5", "#353742", "#0C0809"]
     },  
     {
       "id": 9,
@@ -88,7 +88,7 @@
       "description": "Lorem ipsum dolor.",
       "image": "the-north-face.jpg",
       "sizes": ["XS", "M", "XL", "XXL"],
-      "colors": ["#D0D4D5", "#353742", "#CDCDCF"]
+      "color": ["#D0D4D5", "#353742", "#CDCDCF"]
     },
     {
       "id": 10,
@@ -98,7 +98,7 @@
       "description": "Lorem ipsum dolor.",
       "image": "tommy-hilfiger.jpg",
       "sizes": ["S","L", "XXL"],
-      "colors": ["#353742", "#0C0809"]
+      "color": ["#353742", "#0C0809"]
     }       
   ]
 } 
