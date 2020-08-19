@@ -9,10 +9,10 @@ export default new Vuex.Store({
   state: {
     products: [],
     sortedProducts: [],
-    cart: [],
-    isAdded: false
+    cart: []
   },
   actions: {
+    // Getting data from JSON-SERVER
     GET_PRODUCTS({ commit }) {
       return axios('http://localhost:3000/products', {
         method: "GET"
@@ -51,20 +51,7 @@ export default new Vuex.Store({
       state.sortedProducts = sortedProducts
     },
     SET_PRODUCT_TO_CART(state, product) {
-      if (state.cart.length > 1) {
-        state.isAdded = false
-        state.cart.map(item => {
-          if (item.id === product.id) {
-            state.isAdded = true
-            item.quantity++
-          } 
-          if (!state.isAdded) {
-            state.cart.push(product)
-          }
-        })
-      } else {
-        state.cart.push(product)
-      }
+      state.cart.push(product)
     },
     DELETE_PRODUCT_FROM_CART(state, index) {
       state.cart.splice(index, 1)

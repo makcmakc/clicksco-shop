@@ -48,7 +48,6 @@ export default {
       this.$set(product, 'quantity', 1)
       // this.$set(product, 'isAdded', true)
       this.$store.dispatch('SET_PRODUCT_TO_CART', product)
-      console.log(product)
     } 
   },
   mounted() {

@@ -12,6 +12,9 @@
   "dependencies": {
     "axios": "^0.19.2",
     "core-js": "^3.6.5",
+    "firebase": "^7.18.0",
+    "firebase-tools": "^8.7.0",
+    "global": "^4.4.0",
     "vue": "^2.6.11",
     "vue-material-checkbox": "^2.2.0",
     "vue-router": "^3.2.0",

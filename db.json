@@ -58,7 +58,7 @@
       "description": "Lorem ipsum dolor.",
       "image": "polo.jpeg",
       "sizes": ["XS", "S", "XL", "XXL"],
-      "color": ["#D0D4D5", "#353742", "#CDCDCF", "#0C0809"]
+      "color": ["#D0D4D5", "#353742", "#D3C7B9", "#CDCDCF", "#0C0809"]
     },
     {
       "id": 7,
