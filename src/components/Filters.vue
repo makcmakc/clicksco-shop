@@ -20,6 +20,7 @@
           v-model="selectedColors"
           :color="color"
           @change="sortByColor(color)"
+          :style="{backgroundColor: color, width: '20px'}"
         ></Checkbox>
       </div>
     </div>
@@ -71,17 +72,15 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['PRODUCTS']),
+    ...mapGetters(['PRODUCTS'])
   },
   mounted() {
     // Get all the elements, and then loop through them
-    const checkboxesGroup = document.querySelectorAll('.m-chckbox--group')
+    const checkboxesGroup = document.querySelectorAll('.m-chckbox--container')
     checkboxesGroup.forEach(cb => {
-      // Getting a "color" attribute for each checkbox
-      const checkboxColor = cb.children[0].firstChild.getAttribute('color')
       // Change default styles
-        cb.style.backgroundColor = checkboxColor
-        cb.style.borderColor = checkboxColor     
+      cb.children[1].style.display = 'none'
+      cb.children[0].style.borderColor = 'transparent'
     })
   }
 }
