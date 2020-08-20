@@ -1,7 +1,8 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import axios from "axios"
+// import axios from "axios"
+import api from '@/api';
 
 Vue.use(Vuex)
 
@@ -13,19 +14,46 @@ export default new Vuex.Store({
   },
   actions: {
     // Getting data from JSON-SERVER
+    // GET_PRODUCTS({ commit }) {
+    //   return axios('http://localhost:3000/products', {
+    //     method: "GET"
+    //   })
+    //     .then(products => {
+    //       commit('SET_PRODUCTS_TO_STATE', products.data)
+    //       commit('SET_SORTED_PRODUCTS_TO_STATE', products.data)
+    //       return products
+    //     })
+    //     .catch(error => {
+    //       console.log(error)
+    //       return error
+    //     })
+    // }, 
+
+    // Getting data from LOCAL FILE
+    // GET_PRODUCTS({ commit }) {
+    //   return axios('../../db.json', {
+    //     method: "GET"
+    //   })
+    //     .then(response => {
+    //       commit('SET_PRODUCTS_TO_STATE', response.data.products)
+    //       commit('SET_SORTED_PRODUCTS_TO_STATE', response.data.products)
+    //       return response.data
+    //     })
+    //     .catch(error => {
+    //       console.log(error)
+    //       return error
+    //     })
+    // },
+
+    // Getting data from API
     GET_PRODUCTS({ commit }) {
-      return axios('http://localhost:3000/products', {
-        method: "GET"
+      return new Promise(function(resolve) {
+        api.getAllProducts(products => {
+          commit('SET_PRODUCTS_TO_STATE',products)
+          commit('SET_SORTED_PRODUCTS_TO_STATE',products)
+          resolve()
+        })
       })
-        .then(products => {
-          commit('SET_PRODUCTS_TO_STATE', products.data)
-          commit('SET_SORTED_PRODUCTS_TO_STATE', products.data)
-          return products
-        })
-        .catch(error => {
-          console.log(error)
-          return error
-        })
     },
     SET_SORTED_PRODUCTS_TO_STATE({ commit }, sortedProducts) {
       commit('SET_SORTED_PRODUCTS_TO_STATE', sortedProducts)
@@ -75,6 +103,6 @@ export default new Vuex.Store({
         summary += item.price * item.quantity
       })
       return summary
-    },
+    }
   }
 })

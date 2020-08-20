@@ -1,6 +1,5 @@
 <template>
   <div class="product-list">
-<!--     {{SORTED_PRODUCTS}} -->
     <Product
       v-for="(product, index) in SORTED_PRODUCTS"
       :key="index"

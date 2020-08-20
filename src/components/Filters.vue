@@ -15,7 +15,7 @@
     <div class="filter-by__color">
       <div v-for="(color, index) in colors" :key="index">
         <Checkbox
-          :checked="true"
+          :checked="false"
           v-bind:value="color"
           v-model="selectedColors"
           :color="color"
@@ -56,12 +56,11 @@ export default {
       // Sending data to the store
       this.$store.dispatch('SET_SORTED_PRODUCTS_TO_STATE', this.sortedProducts)
     },
-
     sortByColor(color) {
       // If nothing is selected
-      // if (!this.selectedColors.length) {
-      //   return this.sortedProducts
-      // }
+      if (!this.selectedColors.length) {
+        return this.sortedProducts
+      }
       this.selectedColors.map(currentColor => {
         if (currentColor !== color) {
           this.sortedProducts = this.sortedProducts.filter(item => {
@@ -76,10 +75,10 @@ export default {
   },
   mounted() {
     // Get all the elements, and then loop through them
-    const checkboxesGroup = document.querySelectorAll('.m-chckbox--container.active .m-chckbox--group')
+    const checkboxesGroup = document.querySelectorAll('.m-chckbox--group')
     checkboxesGroup.forEach(cb => {
       // Getting a "color" attribute for each checkbox
-      const checkboxColor = cb.children[1].firstChild.getAttribute('color')
+      const checkboxColor = cb.children[0].firstChild.getAttribute('color')
       // Change default styles
         cb.style.backgroundColor = checkboxColor
         cb.style.borderColor = checkboxColor     
